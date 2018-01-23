@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "b7904d07d1e1765a0a199aa11d6301a3",
+    "content-hash": "f26b5d006dc7dd18a27e49b08cb2b88c",
     "packages": [
         {
             "name": "dnoegel/php-xdg-base-dir",
@@ -602,6 +602,61 @@
                 "psysh"
             ],
             "time": "2017-12-18T16:25:11+00:00"
+        },
+        {
+            "name": "laravelcollective/html",
+            "version": "v5.0.5",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/LaravelCollective/html.git",
+                "reference": "f1eddc7a7834854a3cb147a7601547394d345213"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/LaravelCollective/html/zipball/f1eddc7a7834854a3cb147a7601547394d345213",
+                "reference": "f1eddc7a7834854a3cb147a7601547394d345213",
+                "shasum": ""
+            },
+            "require": {
+                "illuminate/http": "~5.1",
+                "illuminate/routing": "~5.1",
+                "illuminate/session": "~5.1",
+                "illuminate/support": "~5.1",
+                "php": ">=5.4.0"
+            },
+            "require-dev": {
+                "mockery/mockery": "~0.9",
+                "phpunit/phpunit": "~4.0"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "5.1-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Collective\\Html\\": "src/"
+                },
+                "files": [
+                    "src/helpers.php"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Taylor Otwell",
+                    "email": "taylorotwell@gmail.com"
+                },
+                {
+                    "name": "Adam Engebretson",
+                    "email": "adam@laravelcollective.com"
+                }
+            ],
+            "time": "2015-05-21T16:45:14+00:00"
         },
         {
             "name": "league/flysystem",
