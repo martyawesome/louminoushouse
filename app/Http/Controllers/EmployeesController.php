@@ -3,6 +3,11 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Http\Requests\AddEmployeeRequest;
+use App\Http\Requests\EditEmployeeRequest;
+
+use App\Employee;
+use App\EmployeeType;
 
 class EmployeesController extends Controller
 {
@@ -39,4 +44,28 @@ class EmployeesController extends Controller
     	Auth::logout();
     	return redirect(route('admin_login'));
     }
+
+    public function showAll(){
+        $employees = Employee::get();
+        return view('employees.all', compact('employees'));
+    }
+
+    public function showAdd(){
+        $employee = new Employee();
+        $employee_types = EmployeeType::pluck('name','id');
+        return view('employees.add', compact('employee','employee_types'));
+    }
+
+    public function showEdit(Employee $employee){
+        $employee_types = EmployeeType::pluck('name','id');
+        return view('employees.edit', compact('employee','employee_types'));
+    }
+
+    public function addEmployee(AddEmployeeRequest $request, Employee $employee){
+        dd($request->get('first_name'));
+    }
+
+    public function editEmployee(EditEmployeeRequest $request, Employee $employee){
+    }
+
 }

@@ -28,7 +28,8 @@ class EmployeesSeeder extends Seeder
                 'sex' => 'Male',
                 'contact_number' => '09175324627',
                 'address' => '173 Bridgestone St. Brookside Hills Subd Cainta, Rizal',
-                'salary_rate' => '0'
+                'salary_rate' => '0',
+                'is_active' => true
             ]
         ];
 

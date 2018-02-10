@@ -19,7 +19,7 @@ class CreateTransactionsTable extends Migration
             $table->float('gross_amount');
             $table->float('discount');
             $table->float('net_amount');
-            $table->string('client');
+            $table->string('client')->is_nullable();
             $table->timestamps();
         });
     }

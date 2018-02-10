@@ -128,10 +128,10 @@
                     <li><a href="#"><i class="fa fa-dashboard"></i> <span>Dashboard</span></a></li>
                     <li class="treeview">
                         <a href="#">
-                <i class="fa fa-smile-o"></i>
-                <span>Services</span>
-                <i class="fa fa-angle-left pull-right"></i>
-              </a>
+                            <i class="fa fa-smile-o"></i>
+                            <span>Services</span>
+                            <i class="fa fa-angle-left pull-right"></i>
+                            </a>
                         <ul class="treeview-menu">
                             <li><a href="pages/layout/top-nav.html"><i class="fa fa-list-ol"></i> List</a></li>
                             <li><a href="pages/layout/boxed.html"><i class="fa fa-keyboard-o"></i> Types</a></li>
@@ -139,6 +139,11 @@
                     </li>
                     <li><a href="#"><i class="fa fa-gift"></i> <span>Promos</span></a></li>
                     <li><a href="#"><i class="fa fa-coffee"></i> <span>Products</span></a></li>
+                    <li><a href="#"><i class="fa fa-credit-card"></i> <span>Transactions</span></a></li>
+                    <li><a href="#"><i class="fa fa-calendar"></i> <span>Attendances</span></a></li>
+                    <li><a href="#"><i class="fa fa-money"></i> <span>Payroll</span></a></li>
+                    <li><a href="{{ URL::route('employees') }}"><i class="fa fa-users"></i> <span>Employees</span></a></li>
+                    <li><a href="#"><i class="fa fa-dollar"></i> <span>Discounts</span></a></li>
                 </ul>
             </section>
             <!-- /.sidebar -->

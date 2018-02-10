@@ -11,23 +11,20 @@
 |
 */
 
+Route::bind('employee', function($id){
+	$employee = App\Employee::find($id);
+	if($employee == null) $employee = new App\Employee();
+	return $employee;
+});
 
-/*Route::filter('auth_admin', function()
-{
-	if (Auth::check() or Auth::viaRemember()){
-        if(!App\Employee::hasAccess()) {
-            Auth::logout();
-            return redirect(route('login'))->withDanger("Account has no admin access");
-        }
-    } else {
-    	return redirect(route('login'));
-    }
-});*/
+	Route::get('/login', ['as' => 'login','uses' => 'EmployeesController@dashboard']);
+	Route::get('/logout', ['as' => 'logout','uses' => 'EmployeesController@logout']);
+	Route::post('/login', 'EmployeesController@login');
 
+	Route::get('/', ['as' => 'login','uses' => 'EmployeesController@dashboard']);
+	Route::get('/employees', ['as' => 'employees','uses' => 'EmployeesController@showAll']);
+	Route::get('/add_employee', ['as' => 'add_employee','uses' => 'EmployeesController@showAdd']);
+	Route::get('/edit_employee/{employee}', ['as' => 'employee','uses' => 'EmployeesController@showEdit']);
 
-Route::get('/login', ['as' => 'login','uses' => 'EmployeesController@dashboard']);
-Route::get('/logout', ['as' => 'logout','uses' => 'EmployeesController@logout']);
-Route::post('/login', 'EmployeesController@login');
-
-Route::get('/', ['as' => 'login','uses' => 'EmployeesController@dashboard']);
-
+	Route::post('/add_employee', 'EmployeesController@addEmployee');
+	Route::post('/edit_employee/{employee}', 'EmployeesController@editEmployee');
