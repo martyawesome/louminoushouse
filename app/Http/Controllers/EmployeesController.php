@@ -3,8 +3,6 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Http\Requests\AddEmployeeRequest;
-use App\Http\Requests\EditEmployeeRequest;
 
 use App\Employee;
 use App\EmployeeType;
@@ -61,11 +59,46 @@ class EmployeesController extends Controller
         return view('employees.edit', compact('employee','employee_types'));
     }
 
-    public function addEmployee(AddEmployeeRequest $request, Employee $employee){
-        dd($request->get('first_name'));
+    public function addEmployee(Request $request, Employee $employee){
+        $this->validate($request,[
+            'password' => 'required|min:5|max:20',
+            'password_confirmation' => 'required|min:5|max:20|same:password',
+            'first_name' => 'required',
+            'last_name' => 'required',
+            'birthdate' => 'required|date',
+            'address' => 'required',
+            'contact_number' => 'required',
+            'email' => 'email',
+            'salary_rate' => 'integer|min:0',
+        ]);
+
+        $return = Employee::addEmployee($request,$employee);
+
+        if($return["success"]){
+            return redirect(route('employees', array()))->withSuccess('Employee was successfully added');
+        } else {
+            return redirect(route('employees', array()))->withDanger('Employee was unsuccessfully added');
+        }
     }
 
-    public function editEmployee(EditEmployeeRequest $request, Employee $employee){
+    public function editEmployee(Request $request, Employee $employee){
+        $this->validate($request,[
+            'first_name' => 'required',
+            'last_name' => 'required',
+            'birthdate' => 'required|date',
+            'address' => 'required',
+            'contact_number' => 'required',
+            'email' => 'email',
+            'salary_rate' => 'integer|min:0',
+        ]);
+
+        $return = Employee::addEmployee($request,$employee);
+
+        if($return["success"]){
+            return redirect(route('employees', array()))->withSuccess('Employee was successfully edited');
+        } else {
+            return redirect(route('employees', array()))->withDanger('Employee was unsuccessfully edited');
+        }
     }
 
 }

@@ -17,14 +17,14 @@ Route::bind('employee', function($id){
 	return $employee;
 });
 
-	Route::get('/login', ['as' => 'login','uses' => 'EmployeesController@dashboard']);
-	Route::get('/logout', ['as' => 'logout','uses' => 'EmployeesController@logout']);
-	Route::post('/login', 'EmployeesController@login');
+Route::get('/login', ['as' => 'login','uses' => 'EmployeesController@dashboard']);
+Route::get('/logout', ['as' => 'logout','uses' => 'EmployeesController@logout']);
+Route::post('/login', 'EmployeesController@login');
 
-	Route::get('/', ['as' => 'login','uses' => 'EmployeesController@dashboard']);
-	Route::get('/employees', ['as' => 'employees','uses' => 'EmployeesController@showAll']);
-	Route::get('/add_employee', ['as' => 'add_employee','uses' => 'EmployeesController@showAdd']);
-	Route::get('/edit_employee/{employee}', ['as' => 'employee','uses' => 'EmployeesController@showEdit']);
+Route::get('/', ['as' => 'login','uses' => 'EmployeesController@dashboard']);
+Route::get('/employees', ['as' => 'employees','uses' => 'EmployeesController@showAll']);
+Route::get('/add_employee', ['as' => 'add_employee','uses' => 'EmployeesController@showAdd']);
+Route::get('/edit_employee/{employee}', ['as' => 'employee','uses' => 'EmployeesController@showEdit']);
 
-	Route::post('/add_employee', 'EmployeesController@addEmployee');
-	Route::post('/edit_employee/{employee}', 'EmployeesController@editEmployee');
+Route::post('/add_employee', 'EmployeesController@addEmployee');
+Route::post('/edit_employee/{employee}', 'EmployeesController@editEmployee');
